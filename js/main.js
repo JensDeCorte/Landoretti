@@ -1,3 +1,52 @@
+$(function() {
+    $loggedIn = $("#logged-in-wrapper");
+    $loggingIn = $("#logging-in-wrapper");
+    $loggedOut = $("#logged-out-wrapper");
+    $loginbtn = $(".login-btn");
+    $logoutbtn = $(".logout-btn");
+    $nextbtn = $(".next-login");
+    $validationInput = $(".validate");
+    $validationButton = $("#add_auction");
+    $errorDiv = $("#error");
+    $errorList = $("#error ul");
+    $sortDropdown = $(".sort-dropdown");
+    $filter = $(".filters");
+    $sortArrow = $("#sort-arrow");
+
+    $loggedIn.hide();
+    $loggingIn.hide();
+    $filter.hide();
+    var boollogin = localStorage.length;
+    
+
+    $loginbtn.on('click', function(){
+        $loggingIn.show();
+        $loggedOut.hide();
+    });
+    $nextbtn.on('click', function(){
+        $loggingIn.hide();
+        $loggedIn.show();
+        localStorage.setItem('isloggedin' ,true);
+    });
+    $logoutbtn.on('click', function(){
+        $loggedIn.hide();
+        $loggedOut.show();
+        localStorage.removeItem('isloggedin');
+    });
+    if(boollogin){
+        $loggingIn.hide();
+        $loggedOut.hide();
+        $loggedIn.show();
+    } 
+    if(!boollogin) {
+        $loggedIn.hide();
+        $loggingIn.hide();
+        $loggedOut.show();
+
+    }
+
+});
+
 
 
 var countDownDate = new Date("Jan 16, 2018 15:06:25").getTime();

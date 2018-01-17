@@ -516,8 +516,6 @@ select.minimal:focus {
   outline: 0;
 }
 
-
-
 select:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
@@ -556,13 +554,13 @@ textarea.validation-arrow {
     background-size: cover;
     background-position: center;
 }
+
 @media (max-width: 991px) { 
 
     .overview-wrapper-big {
         height: 400px;
         padding:10px 20px 10px 10px;
     }
-
 }
 
 .overview-picture {
