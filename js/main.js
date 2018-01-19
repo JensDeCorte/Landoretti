@@ -7,6 +7,7 @@ $(function() {
     $nextbtn = $(".next-login");
     $validationInput = $(".validate");
     $validationButton = $("#add_auction");
+    $imageButtonValidate = $(".upload-image");
     $errorDiv = $("#error");
     $errorList = $("#error ul");
     $sortDropdown = $(".sort-dropdown");
@@ -44,12 +45,51 @@ $(function() {
         $loggedOut.show();
 
     }
+    $imageButtonValidate.on('click', function(){
+        $(this).addClass('validation-arrow');
+    });
+
+    $validationInput.on('blur', function(){
+        if( !$(this).val() ) {
+            $(this).addClass('error-validation ');
+            $(this).removeClass('validation-arrow');
+            $errorDiv.fadeIn('fast');
+            $errorList.append('<li class="li-error">Please enter a ' + this.id + ' for your auction</li>');
+      } else {
+        $(this).addClass('validation-arrow');
+        $(this).removeClass('error-validation ');   
+      }
+    });
+
+    $validationButton.on('click', function() {    
+        $( $validationInput ).each(function() {
+        if( !$(this).val() ) {
+            $(this).addClass('error-validation ');
+            $(this).removeClass('validation-arrow');
+            $errorDiv.fadeIn('fast');
+            $errorList.append('<li class="li-error">Please enter a ' + this.id + ' for your auction</li>');
+      } else {
+        $(this).addClass('validation-arrow');
+        $(this).removeClass('error-validation ');
+      }
+    });
+
+    });
+
+
+    $sortDropdown.on('click', function(){
+        $filter.slideToggle( "slow");
+        $sortArrow.toggleClass('arrow-down')
+    });
+    
 
 });
 
 
 
-var countDownDate = new Date("Jan 16, 2018 15:06:25").getTime();
+
+
+var countDownDate = new Date("Jan 27, 2018 19:59:59").getTime();
 
 var x = setInterval(function() {
   var now = new Date().getTime();
